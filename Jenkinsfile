@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'MAVEN3'
+        maven 'MAVEN9'
         jdk 'JDK21'
     }
 
@@ -19,7 +19,9 @@ pipeline{
 
     stages{
         stage('build'){
-            sh 'maven - s settings.xml -DskipTests install'
+            steps{
+                sh 'maven - s settings.xml -DskipTests install'
+            }   
         }
     }
 }
