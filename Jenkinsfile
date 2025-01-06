@@ -1,14 +1,14 @@
-pipeline{
+pipeline {
     agent any
-    tools{
+    tools {
         maven "MAVEN3"
-        jdk 'JDK21'
+        jdk "JDK21"
     }
-
-    environment{
+    
+    environment {
         SNAP_REPO = 'vprofile-snapshot'
 		NEXUS_USER = 'admin'
-		NEXUS_PASS = 'nexus123'
+		NEXUS_PASS = 'admin123'
 		RELEASE_REPO = 'vprofile-release'
 		CENTRAL_REPO = 'vpro-maven-central'
 		NEXUSIP = '172.31.1.121'
@@ -17,11 +17,11 @@ pipeline{
         NEXUS_LOGIN = 'nexuslogin'
     }
 
-    stages{
-        stage('build'){
-            steps{
+    stages {
+        stage('Build'){
+            steps {
                 sh 'mvn -s settings.xml -DskipTests install'
-            }   
+            }
         }
     }
 }
